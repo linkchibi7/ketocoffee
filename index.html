@@ -268,3 +268,52 @@
       <img src="https://cdn-icons-png.flaticon.com/512/415/415733.png" alt="Brûleur de graisses" />
       <h3>Brûleur de graisses naturel</h3>
       <p>La formule MCT stimule votre métabolisme et aide à éliminer les graisses
+<!-- Bouton CTA -->
+<div class="cta">
+  <button id="openFormBtn" style="background:#ff7b24;color:#fff;padding:1rem 2rem;border:none;border-radius:8px;cursor:pointer;font-weight:bold;box-shadow:0 4px 6px rgba(0,0,0,0.1);">
+    Profitez de l'offre à 35€ au lieu de 60€
+  </button>
+</div>
+
+<!-- Formulaire Modal -->
+<div id="formModal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:9999;">
+  <div style="background:#fff; padding:2rem; border-radius:10px; max-width:400px; width:90%; position:relative;">
+    <button id="closeFormBtn" style="position:absolute; top:10px; right:10px; background:none; border:none; font-size:1.5rem; cursor:pointer;">&times;</button>
+    <h2 style="color:#6f4e37; margin-bottom:1rem;">Formulaire de commande</h2>
+    <form id="orderForm">
+      <label for="nom" style="display:block; margin-bottom:0.3rem; font-weight:bold;">Nom</label>
+      <input type="text" id="nom" name="nom" required style="width:100%; padding:0.5rem; margin-bottom:1rem; border:1px solid #ccc; border-radius:5px;">
+      
+      <label for="prenom" style="display:block; margin-bottom:0.3rem; font-weight:bold;">Prénom</label>
+      <input type="text" id="prenom" name="prenom" required style="width:100%; padding:0.5rem; margin-bottom:1rem; border:1px solid #ccc; border-radius:5px;">
+      
+      <label for="telephone" style="display:block; margin-bottom:0.3rem; font-weight:bold;">Numéro de téléphone</label>
+      <input type="tel" id="telephone" name="telephone" required pattern="^\+?\d{7,15}$" placeholder="+33 6 12 34 56 78" style="width:100%; padding:0.5rem; margin-bottom:1rem; border:1px solid #ccc; border-radius:5px;">
+      
+      <label style="display:flex; align-items:center; margin-bottom:1rem; cursor:pointer;">
+        <input type="checkbox" id="rappelleMoi" name="rappelleMoi" style="margin-right:0.5rem;">
+        <span>Rappelez-moi</span>
+      </label>
+      
+      <button type="submit" style="background:#ff7b24; color:#fff; padding:1rem; border:none; border-radius:8px; width:100%; font-weight:bold; cursor:pointer;">Envoyer</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  const openBtn = document.getElementById('openFormBtn');
+  const modal = document.getElementById('formModal');
+  const closeBtn = document.getElementById('closeFormBtn');
+  const form = document.getElementById('orderForm');
+
+  openBtn.addEventListener('click', () => {
+    modal.style.display = 'flex';
+  });
+
+  closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+
+  // Fermer le modal si clic en dehors de la boîte
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) {
