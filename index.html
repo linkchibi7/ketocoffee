@@ -250,24 +250,6 @@
   </style>
 </head>
 <body>
-
-<header>
-  <h1>Keto Coffee</h1>
-  <p>Transformez votre café en un brûleur de graisses naturel et savoureux !</p>
-  <a href="#order" class="btn-primary">Profitez de l'offre à 35€ au lieu de 60€</a>
-</header>
-
-<div class="offer-banner">
-  Offre exclusive : Keto Coffee à seulement <strong>35€</strong> au lieu de 60€ ! Livraison rapide & paiement sécurisé.
-</div>
-
-<section class="container">
-  <h2>Pourquoi choisir Keto Coffee ?</h2>
-  <div class="benefits">
-    <div class="benefit">
-      <img src="https://cdn-icons-png.flaticon.com/512/415/415733.png" alt="Brûleur de graisses" />
-      <h3>Brûleur de graisses naturel</h3>
-      <p>La formule MCT stimule votre métabolisme et aide à éliminer les graisses
 <!-- Bouton CTA -->
 <div class="cta">
   <button id="openFormBtn" style="background:#ff7b24;color:#fff;padding:1rem 2rem;border:none;border-radius:8px;cursor:pointer;font-weight:bold;box-shadow:0 4px 6px rgba(0,0,0,0.1);">
@@ -317,3 +299,34 @@
   // Fermer le modal si clic en dehors de la boîte
   window.addEventListener('click', (e) => {
     if (e.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    // Ici tu peux ajouter le code pour envoyer le formulaire via AJAX, ou rediriger vers une page de confirmation
+
+    alert('Merci pour votre commande, nous vous contacterons rapidement !');
+    form.reset();
+    modal.style.display = 'none';
+  });
+</script>
+
+<header>
+  <h1>Keto Coffee</h1>
+  <p>Transformez votre café en un brûleur de graisses naturel et savoureux !</p>
+  <a href="#order" class="btn-primary">Profitez de l'offre à 35€ au lieu de 60€</a>
+</header>
+
+<div class="offer-banner">
+  Offre exclusive : Keto Coffee à seulement <strong>35€</strong> au lieu de 60€ ! Livraison rapide & paiement sécurisé.
+</div>
+
+<section class="container">
+  <h2>Pourquoi choisir Keto Coffee ?</h2>
+  <div class="benefits">
+    <div class="benefit">
+      <img src="https://cdn-icons-png.flaticon.com/512/415/415733.png" alt="Brûleur de graisses" />
+      <h3>Brûleur de graisses naturel</h3>
+      <p>La formule MCT stimule votre métabolisme et aide à éliminer les graisses
