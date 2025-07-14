@@ -63,4 +63,208 @@
       font-size: 1.4rem;
       margin-bottom: 2rem;
       font-weight: 500;
-      text-shadow: 1px 1px 6px r
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
+      max-width: 600px;
+    }
+    .btn-primary {
+      background-color: #ff7b24;
+      color: white;
+      font-weight: 700;
+      padding: 1.3rem 3rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-size: 1.3rem;
+      box-shadow: 0 8px 20px rgba(255,123,36,0.6);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+      display: inline-block;
+    }
+    .btn-primary:hover {
+      background-color: #e76609;
+      box-shadow: 0 12px 30px rgba(231,102,9,0.8);
+      transform: translateY(-4px);
+    }
+
+    /* Offer banner */
+    .offer-banner {
+      background: #ffe7c5;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #b34800;
+      box-shadow: inset 0 0 10px #ffb858;
+      margin-bottom: 3rem;
+      border-radius: 12px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 4rem;
+    }
+
+    h2 {
+      text-align: center;
+      font-weight: 700;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #6f4e37;
+      text-shadow: 1px 1px 2px #d7baa1;
+    }
+
+    /* Benefits grid */
+    .benefits {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+      gap: 2rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .benefit {
+      background: white;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(111,78,55,0.12);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .benefit:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(111,78,55,0.25);
+    }
+    .benefit img {
+      width: 80px;
+      margin-bottom: 1rem;
+    }
+    .benefit h3 {
+      color: #a35400;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      font-size: 1.4rem;
+    }
+    .benefit p {
+      font-size: 1.05rem;
+      color: #5c4635;
+      line-height: 1.4;
+    }
+
+    /* Form section */
+    .order-section {
+      background: #fff3db;
+      padding: 3rem 1rem 4rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(255,123,36,0.2);
+      max-width: 600px;
+      margin: 0 auto 6rem;
+      text-align: center;
+    }
+    .order-section h2 {
+      margin-bottom: 1.5rem;
+      font-size: 2.2rem;
+      color: #b35f00;
+      text-shadow: 1px 1px 3px #ffbc71;
+    }
+    .order-section p {
+      font-size: 1.15rem;
+      margin-bottom: 2rem;
+      color: #6f4e37;
+      font-weight: 600;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.3rem;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    input[type="text"], input[type="tel"] {
+      padding: 1rem 1.2rem;
+      border-radius: 12px;
+      border: 2px solid #d2a04f;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #5a3e07;
+      transition: border-color 0.3s ease;
+    }
+    input[type="text"]:focus, input[type="tel"]:focus {
+      outline: none;
+      border-color: #ff7b24;
+      box-shadow: 0 0 10px #ff7b24aa;
+    }
+    .submit-btn {
+      background-color: #ff7b24;
+      color: white;
+      font-weight: 700;
+      padding: 1.3rem 0;
+      border: none;
+      border-radius: 40px;
+      font-size: 1.3rem;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(255,123,36,0.6);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+    }
+    .submit-btn:hover {
+      background-color: #e76609;
+      box-shadow: 0 12px 30px rgba(231,102,9,0.8);
+      transform: translateY(-4px);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #b98a4d;
+      background: #fff4db;
+      border-top: 1px solid #e6c17b;
+      user-select: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 650px) {
+      header {
+        height: 400px;
+        padding: 2rem 1rem;
+      }
+      header h1 {
+        font-size: 2.4rem;
+      }
+      header p {
+        font-size: 1rem;
+        max-width: 90%;
+      }
+      .benefits {
+        grid-template-columns: 1fr;
+        max-width: 90%;
+      }
+      .order-section {
+        max-width: 90%;
+        padding: 2rem 1rem 3rem;
+      }
+      form {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Keto Coffee</h1>
+  <p>Transformez votre café en un brûleur de graisses naturel et savoureux !</p>
+  <a href="#order" class="btn-primary">Profitez de l'offre à 35€ au lieu de 60€</a>
+</header>
+
+<div class="offer-banner">
+  Offre exclusive : Keto Coffee à seulement <strong>35€</strong> au lieu de 60€ ! Livraison rapide & paiement sécurisé.
+</div>
+
+<section class="container">
+  <h2>Pourquoi choisir Keto Coffee ?</h2>
+  <div class="benefits">
+    <div class="benefit">
+      <img src="https://cdn-icons-png.flaticon.com/512/415/415733.png" alt="Brûleur de graisses" />
+      <h3>Brûleur de graisses naturel</h3>
+      <p>La formule MCT stimule votre métabolisme et aide à éliminer les graisses
