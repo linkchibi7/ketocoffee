@@ -1,149 +1,509 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Keto Coffee</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Keto Coffee - Transform Your Mornings</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    body { margin: 0; font-family: Arial, sans-serif; color: #333; }
-    .container { width: 90%; max-width: 800px; margin: auto; }
-    header { text-align: center; padding: 20px 0; }
-    header h1 { font-size: 2em; margin-bottom: 10px; }
-    header p { font-size: 1.2em; color: #555; }
-    .cta-btn {
-      background: #e67e22; color: #fff; padding: 15px 30px;
-      font-size: 1.2em; border: none; border-radius: 5px;
-      cursor: pointer;
-    }
-    section { margin: 40px 0; }
-    .features { display: flex; flex-wrap: wrap; justify-content: space-between; }
-    .feature { flex: 1 1 30%; margin: 10px; text-align: center; }
-    .feature img { width: 60px; }
-    .testimonial {
-      background: #f9f9f9; padding: 20px;
-      margin: 10px 0; border-radius: 5px;
-    }
-    .price { text-align: center; margin: 30px 0; }
-    .price span.old { text-decoration: line-through; color: #999; margin-right: 10px; }
-    .faq dt { font-weight: bold; margin-top: 20px; }
-    img.full { width: 100%; border-radius: 10px; margin: 20px 0; }
-    @media(max-width: 600px) {
-      .features { flex-direction: column; }
-      .feature { margin: 10px 0; }
-      .cta-btn { width: 100%; }
+    :root {
+      --primary-color: #e67e22; /* Orange */
+      --secondary-color: #2ecc71; /* Green for success/submit */
+      --text-color: #333;
+      --light-bg: #f9f9f9;
+      --dark-text: #555;
     }
 
-    /* Modal styles */
-    .modal {
-      display: none; position: fixed; z-index: 1000;
-      left: 0; top: 0; width: 100%; height: 100%;
-      background-color: rgba(0,0,0,0.6);
+    body {
+      margin: 0;
+      font-family: 'Open Sans', Arial, sans-serif;
+      color: var(--text-color);
+      line-height: 1.6;
+      background-color: #fff;
     }
-    .modal-content {
-      background: #fff; padding: 20px; margin: 10% auto;
-      width: 90%; max-width: 500px; border-radius: 8px;
+
+    .container {
+      width: 90%;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px 0;
+    }
+
+    /* --- Header Section --- */
+    header {
+      text-align: center;
+      padding: 30px 0;
+      background-color: var(--light-bg);
+      border-bottom: 1px solid #eee;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      color: var(--primary-color);
+      margin-bottom: 15px;
+      line-height: 1.2;
+    }
+
+    header p {
+      font-size: 1.3em;
+      color: var(--dark-text);
+      margin-bottom: 25px;
+    }
+
+    .cta-btn {
+      background: var(--primary-color);
+      color: #fff;
+      padding: 15px 30px;
+      font-size: 1.25em;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-decoration: none; /* For potential future anchor link */
+      display: inline-block;
+      font-weight: bold;
+    }
+
+    .cta-btn:hover {
+      background-color: #d35400; /* Darker orange on hover */
+    }
+
+    img.full-width-banner {
+      width: 100%;
+      border-radius: 10px;
+      margin: 30px 0 20px 0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    /* --- Section Styling --- */
+    section {
+      margin: 50px 0;
+      padding: 20px 0;
+    }
+
+    section h2 {
+      font-size: 2em;
+      color: var(--primary-color);
+      text-align: center;
+      margin-bottom: 30px;
       position: relative;
     }
-    .modal-content h2 { margin-top: 0; }
-    .modal-content input {
-      width: 100%; padding: 10px; margin: 8px 0;
-      border: 1px solid #ccc; border-radius: 4px;
+
+    section h2::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: var(--primary-color);
+      margin: 10px auto 0;
+      border-radius: 2px;
     }
-    .close {
-      position: absolute; right: 15px; top: 10px;
-      font-size: 24px; cursor: pointer; color: #aaa;
+
+    /* --- Features Section --- */
+    .features-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 30px;
     }
-    .close:hover { color: #000; }
+
+    .feature-item {
+      flex: 1 1 280px; /* Allows items to grow/shrink, min-width 280px */
+      background: var(--light-bg);
+      padding: 25px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .feature-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .feature-item img {
+      width: 70px;
+      height: 70px;
+      margin-bottom: 15px;
+    }
+
+    .feature-item h3 {
+      font-size: 1.4em;
+      color: var(--primary-color);
+      margin-bottom: 10px;
+    }
+
+    .feature-item p {
+      font-size: 1em;
+      color: var(--dark-text);
+    }
+
+    /* --- How to Use Section --- */
+    .how-to-use-content {
+      text-align: center;
+    }
+    .how-to-use-content p {
+      font-size: 1.1em;
+      max-width: 600px;
+      margin: 0 auto 30px auto;
+      color: var(--dark-text);
+    }
+    img.how-to-use-img {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    /* --- Testimonials Section --- */
+    .testimonial-card {
+      background: var(--light-bg);
+      padding: 25px;
+      margin: 20px auto;
+      border-left: 5px solid var(--primary-color);
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      font-style: italic;
+      color: var(--dark-text);
+      max-width: 600px;
+    }
+    .testimonial-card p {
+      margin: 0 0 10px 0;
+      font-size: 1.1em;
+    }
+    .testimonial-card span {
+      display: block;
+      text-align: right;
+      font-weight: bold;
+      color: var(--primary-color);
+      font-style: normal;
+      margin-top: 10px;
+    }
+
+    /* --- Price Section --- */
+    .price-section {
+      text-align: center;
+      background-color: var(--light-bg);
+      padding: 40px 20px;
+      border-radius: 10px;
+      margin: 50px 0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .price-section p {
+      font-size: 1.5em;
+      margin-bottom: 20px;
+      color: var(--dark-text);
+    }
+    .price-section span.old-price {
+      text-decoration: line-through;
+      color: #999;
+      font-size: 0.8em;
+      margin-right: 10px;
+    }
+    .price-section span.current-price {
+      font-size: 1.8em;
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+    .price-section .cta-btn {
+      margin-top: 20px;
+    }
+
+    /* --- FAQ Section --- */
+    .faq-list dt {
+      font-weight: bold;
+      margin-top: 25px;
+      color: var(--primary-color);
+      font-size: 1.1em;
+    }
+    .faq-list dd {
+      margin-left: 20px;
+      margin-top: 8px;
+      padding-bottom: 10px;
+      border-bottom: 1px dashed #eee;
+      color: var(--dark-text);
+    }
+    .faq-list dd:last-of-type {
+        border-bottom: none;
+    }
+
+    /* --- Modal Styles --- */
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1000; /* Sit on top */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+      backdrop-filter: blur(5px); /* Optional: blur background */
+      -webkit-backdrop-filter: blur(5px); /* For Safari */
+    }
+
+    .modal-content {
+      background: #fff;
+      margin: 10% auto; /* 10% from the top and centered */
+      padding: 30px;
+      border-radius: 10px;
+      width: 90%; /* Could be more responsive */
+      max-width: 500px;
+      position: relative;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      animation-name: animatetop;
+      animation-duration: 0.4s;
+    }
+
+    /* Add Animation */
+    @keyframes animatetop {
+      from {top: -300px; opacity: 0}
+      to {top: 10%; opacity: 1}
+    }
+
+    .close-button {
+      color: #aaa;
+      position: absolute;
+      top: 15px;
+      right: 25px;
+      font-size: 35px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close-button:hover,
+    .close-button:focus {
+      color: #333;
+      text-decoration: none;
+    }
+
+    .modal-content h2 {
+      text-align: center;
+      color: var(--primary-color);
+      margin-bottom: 25px;
+      font-size: 1.8em;
+    }
+
+    .modal-content form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .modal-content input[type="text"],
+    .modal-content input[type="tel"] {
+      width: calc(100% - 20px); /* Account for padding */
+      padding: 12px 10px;
+      margin: 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1em;
+      box-sizing: border-box; /* Include padding in width */
+    }
+
+    .modal-content input[type="text"]:focus,
+    .modal-content input[type="tel"]:focus {
+      border-color: var(--primary-color);
+      outline: none;
+      box-shadow: 0 0 5px rgba(230, 126, 34, 0.3);
+    }
+
     .submit-btn {
-      background: #27ae60; color: #fff; border: none;
-      padding: 12px 20px; font-size: 1em;
-      border-radius: 5px; cursor: pointer; width: 100%;
+      background: var(--secondary-color);
+      color: white;
+      padding: 15px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1.1em;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+      margin-top: 10px;
+    }
+
+    .submit-btn:hover {
+      background-color: #27ae60; /* Darker green on hover */
+    }
+
+
+    /* --- Responsive Adjustments --- */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2em;
+      }
+      header p {
+        font-size: 1.1em;
+      }
+      .cta-btn {
+        font-size: 1.1em;
+        padding: 12px 25px;
+      }
+      .features-grid {
+        flex-direction: column;
+        align-items: center;
+      }
+      .feature-item {
+        flex: 0 0 90%; /* Full width on smaller screens */
+        max-width: 400px; /* Max width for readability */
+      }
+      section h2 {
+        font-size: 1.8em;
+      }
+      .testimonial-card {
+        margin: 20px 10px;
+      }
+      .modal-content {
+        margin: 5% auto; /* Move closer to top on mobile */
+        padding: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 10px 0;
+      }
+      header {
+        padding: 20px 0;
+      }
+      header h1 {
+        font-size: 1.8em;
+      }
+      header p {
+        font-size: 1em;
+      }
+      .cta-btn {
+        width: 100%;
+        padding: 15px 0;
+        box-sizing: border-box;
+      }
+      section {
+        margin: 40px 0;
+      }
+      section h2 {
+        font-size: 1.6em;
+        margin-bottom: 20px;
+      }
+      .modal-content {
+        margin: 2% auto; /* Even closer to top on very small screens */
+      }
     }
   </style>
 </head>
 <body>
-<div class="container">
-  <header>
-    <h1>Transform Your Mornings with Keto Coffee</h1>
-    <img src="1954ce0785c2cd17ae346fedabe4c7d2.jpg" class="full" alt="Keto Coffee Banner">
-    <p>Boost energy, curb cravings & support your weight-loss journey — just <strong>€39</strong> <del>€79</del></p>
-    <button class="cta-btn" onclick="openForm()">Start Your Transformation</button>
-  </header>
 
-  <section class="features">
-    <div class="feature">
-      <img src="1e45842f10248ac210490dc1280bbf4c.jpg" alt="Fat Burn">
-      <h3>Supports Ketosis</h3>
-      <p>Stay in fat-burning mode</p>
-    </div>
-    <div class="feature">
-      <img src="a0817ee297873a0db87bfcc49f023959.jpg" alt="Energy">
-      <h3>Long-lasting Energy</h3>
-      <p>Focus all day long</p>
-    </div>
-    <div class="feature">
-      <img src="7dea9dc96d534842a8606fc06615af58.jpg" alt="Cravings">
-      <h3>Appetite Control</h3>
-      <p>Helps reduce mid-morning cravings</p>
-    </div>
-  </section>
+  <div class="container">
+    <header>
+      <h1>Start Your Day the Keto Way with Keto Coffee!</h1>
+      <img src="1954ce0785c2cd17ae346fedabe4c7d2.jpg" class="full-width-banner" alt="Delicious Keto Coffee ready to drink">
+      <p>Ignite your metabolism, boost energy, and conquer cravings. Discover the power of a smarter morning!</p>
+      <button class="cta-btn" onclick="openForm()">Unlock Your Potential Today!</button>
+    </header>
 
-  <section>
-    <h2>How to Use</h2>
-    <p>Blend one scoop into hot coffee or water. Shake or stir until smooth and frothy.</p>
-    <img src="b608e713f4cea8a3b22521fd63e61d69.jpg" class="full" alt="How to use Keto Coffee">
-  </section>
+    <section>
+      <h2>Why Choose Keto Coffee?</h2>
+      <div class="features-grid">
+        <div class="feature-item">
+          <img src="1e45842f10248ac210490dc1280bbf4c.jpg" alt="Metabolism Boost Icon">
+          <h3>Supports Your Metabolism</h3>
+          <p>Crafted to help your body naturally shift into a fat-burning mode, making your diet efforts more effective.</p>
+        </div>
+        <div class="feature-item">
+          <img src="a0817ee297873a0db87bfcc49f023959.jpg" alt="Energy Boost Icon">
+          <h3>Sustained Energy & Focus</h3>
+          <p>Experience a smooth, long-lasting energy boost without the jitters or midday crash, keeping you sharp and productive.</p>
+        </div>
+        <div class="feature-item">
+          <img src="7dea9dc96d534842a8606fc06615af58.jpg" alt="Cravings Control Icon">
+          <h3>Master Your Cravings</h3>
+          <p>The perfect blend of healthy fats helps you feel fuller for longer, making it easier to resist unhealthy snacks.</p>
+        </div>
+      </div>
+    </section>
 
-  <section>
-    <h2>Real Results</h2>
-    <div class="testimonial">“Since I started Keto Coffee, I feel more energized throughout the day and have noticed positive changes in my healthy lifestyle habits!” – Julia, 48</div>
-    <div class="testimonial">“My cravings are much easier to manage, and my focus at work is incredible. I feel like a new woman.” – Sarah, 57</div>
-  </section>
+    <section>
+      <h2>Simple Steps to Your Best Morning</h2>
+      <div class="how-to-use-content">
+        <p>Enjoying Keto Coffee is effortlessly simple. Just mix one scoop into hot water or your favorite coffee, stir until smooth, and savor the rich, creamy goodness!</p>
+        <img src="b608e713f4cea8a3b22521fd63e61d69.jpg" class="how-to-use-img" alt="Illustration of how to prepare Keto Coffee">
+      </div>
+    </section>
 
-  <section class="price">
-    <p><span class="old">€79</span> <span class="cta-btn" onclick="openForm()">€39 only</span></p>
-    <p>Free shipping. Limited-time offer!</p>
-  </section>
+    <section>
+      <h2>Hear From Our Happy Customers</h2>
+      <div class="testimonial-card">
+        <p>"I love how Keto Coffee keeps me feeling full and focused throughout my mornings. It's become an essential part of my wellness routine!"</p>
+        <span>— Sarah, 42</span>
+      </div>
+      <div class="testimonial-card">
+        <p>"Since incorporating Keto Coffee, I've noticed a significant improvement in my energy levels and overall well-being. Highly recommend it for anyone looking for a positive change!"</p>
+        <span>— Julia, 55</span>
+      </div>
+      <div class="testimonial-card">
+        <p>"This coffee has truly transformed my mornings. I feel more in control of my appetite and have sustained energy to tackle my day. Plus, it tastes amazing!"</p>
+        <span>— Emily, 38</span>
+      </div>
+    </section>
 
-  <section>
-    <h2>FAQ</h2>
-    <dl class="faq">
-      <dt>Is it safe?</dt>
-      <dd>Yes, made with grass-fed butter, MCT oil and premium coffee. Consult with a healthcare professional if you have specific health concerns.</dd>
-      <dt>Any side effects?</dt>
-      <dd>Generally well tolerated—some may feel a mild caffeine energy boost. If you experience any adverse effects, discontinue use and consult a healthcare professional.</dd>
-    </dl>
-  </section>
-</div>
+    <section class="price-section">
+      <h2>Special Offer Just For You!</h2>
+      <p>Transform your mornings for less:</p>
+      <p><span class="old-price">€79</span> <span class="current-price">€39 ONLY!</span></p>
+      <p>Limited-time offer. Free shipping included!</p>
+      <button class="cta-btn" onclick="openForm()">Get Your Keto Coffee Now!</button>
+    </section>
 
-<div id="popupForm" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeForm()">&times;</span>
-    <h2>Order Now</h2>
-    <form>
-      <input type="text" placeholder="First Name" required />
-      <input type="text" placeholder="Last Name" required />
-      <input type="tel" placeholder="Phone Number" required />
-      <input type="text" placeholder="City" required />
-      <input type="text" placeholder="Postal Code" required />
-      <button type="submit" class="submit-btn">Submit Order</button>
-    </form>
+    <section>
+      <h2>Frequently Asked Questions</h2>
+      <dl class="faq-list">
+        <dt>What is Keto Coffee?</dt>
+        <dd>Keto Coffee is a delicious blend designed to support a ketogenic lifestyle by providing healthy fats for sustained energy and focus. It typically contains quality coffee, MCT oil, and grass-fed butter or Ghee.</dd>
+
+        <dt>How does it help with weight management?</dt>
+        <dd>By providing healthy fats, Keto Coffee helps promote a feeling of fullness and can assist in managing appetite and cravings. This can support your overall dietary goals when combined with a balanced diet and active lifestyle.</dd>
+
+        <dt>Is it safe to consume daily?</dt>
+        <dd>Yes, Keto Coffee is generally safe for daily consumption for most healthy adults. It's made with high-quality, natural ingredients. If you have any specific health conditions or are on medication, we recommend consulting with your doctor before adding any new supplement to your routine.</dd>
+
+        <dt>What does it taste like?</dt>
+        <dd>Keto Coffee has a rich, creamy texture and a delicious coffee flavor. The added fats contribute to a smooth and satisfying taste experience.</dd>
+      </dl>
+    </section>
+
   </div>
-</div>
 
-<script>
-  function openForm() {
-    document.getElementById("popupForm").style.display = "block";
-  }
-  function closeForm() {
-    document.getElementById("popupForm").style.display = "none";
-  }
-  window.onclick = function(event) {
-    const modal = document.getElementById("popupForm");
-    if (event.target === modal) {
-      modal.style.display = "none";
+  <div id="orderModal" class="modal">
+    <div class="modal-content">
+      <span class="close-button" onclick="closeForm()">&times;</span>
+      <h2>Secure Your Keto Coffee Today!</h2>
+      <form>
+        <input type="text" placeholder="First Name" required>
+        <input type="text" placeholder="Last Name" required>
+        <input type="tel" placeholder="Phone Number" required>
+        <input type="text" placeholder="City" required>
+        <input type="text" placeholder="Postal Code" required>
+        <button type="submit" class="submit-btn">Place My Order</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function openForm() {
+      document.getElementById("orderModal").style.display = "block";
     }
-  };
-</script>
+
+    function closeForm() {
+      document.getElementById("orderModal").style.display = "none";
+    }
+
+    // Close the modal when clicking outside of it
+    window.onclick = function(event) {
+      const modal = document.getElementById("orderModal");
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    };
+  </script>
+
 </body>
 </html>
