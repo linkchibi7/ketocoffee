@@ -1,346 +1,175 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Keto Coffee – Brûlez les graisses naturellement</title>
-  <meta property="og:title" content="Keto Coffee - Votre allié minceur naturel" />
-  <meta property="og:description" content="Transformez votre routine café avec Keto Coffee : énergie, perte de poids et concentration améliorée." />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1200&q=80" />
-  <meta property="og:url" content="https://ton-site-exemple.com" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Keto Coffee</title>
   <style>
-    /* Reset & base */
-    *, *::before, *::after { box-sizing: border-box; }
-    body {
-      margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #fffdfa; color: #333; line-height: 1.6; min-height: 100vh;
-      -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
-    }
-    a { text-decoration: none; color: inherit; }
-    img { max-width: 100%; display: block; }
-    button { cursor: pointer; }
-
-    /* Container */
-    .container {
-      max-width: 960px; margin: 0 auto; padding: 0 1rem;
-    }
-
-    /* Header */
-    header {
-      background: linear-gradient(135deg, #6f4e37 0%, #b3895d 100%);
-      color: #fff;
-      padding: 3rem 1rem 5rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    header h1 {
-      font-size: 3rem; font-weight: 900; margin-bottom: 0.5rem;
-      text-shadow: 0 2px 6px rgba(0,0,0,0.3);
-    }
-    header p {
-      font-size: 1.25rem; max-width: 500px; margin: 0 auto 2.5rem;
-      font-weight: 600;
-      text-shadow: 0 1px 3px rgba(0,0,0,0.2);
-    }
-    .btn-primary {
-      background-color: #ff7b24;
-      color: #fff;
-      font-weight: 700;
-      padding: 1rem 2.5rem;
-      border-radius: 50px;
-      box-shadow: 0 8px 15px rgba(255,123,36,0.4);
-      transition: background-color 0.3s ease, box-shadow 0.3s ease;
-      border: none;
-      font-size: 1.25rem;
-    }
-    .btn-primary:hover,
-    .btn-primary:focus {
-      background-color: #e76a11;
-      box-shadow: 0 10px 20px rgba(231,106,17,0.5);
-      outline: none;
-    }
-
-    /* Hero image */
-    header .hero-img {
-      margin-top: 3rem;
-      border-radius: 16px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.2);
-      max-width: 100%;
-      height: auto;
-      max-height: 400px;
-      object-fit: cover;
-      user-select: none;
-      pointer-events: none;
-    }
-
-    /* Section Titles */
-    h2.section-title {
-      font-weight: 800;
-      font-size: 2rem;
-      color: #6f4e37;
-      margin: 4rem 0 2rem 0;
-      text-align: center;
-      letter-spacing: 1px;
-    }
-    p.section-subtitle {
-      text-align: center;
-      max-width: 600px;
-      margin: 0 auto 3rem;
-      font-size: 1.1rem;
-      color: #7a6653;
-      font-weight: 600;
-    }
-
-    /* Benefits Grid */
-    .benefits-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 2rem;
-      padding: 0 1rem;
-    }
-    .benefit-card {
-      background: #fff;
-      border-radius: 15px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-      padding: 2rem 1.5rem;
-      text-align: center;
-      transition: transform 0.3s ease;
-    }
-    .benefit-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    }
-    .benefit-icon {
-      font-size: 3rem;
-      color: #ff7b24;
-      margin-bottom: 1rem;
-    }
-    .benefit-title {
-      font-weight: 700;
-      font-size: 1.25rem;
-      margin-bottom: 0.8rem;
-      color: #4a3928;
-    }
-    .benefit-desc {
-      color: #6f5d49;
-      font-size: 1rem;
-      line-height: 1.4;
-    }
-
-    /* Reviews Section */
-    .reviews-grid {
-      max-width: 900px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2rem;
-      padding: 0 1rem 4rem;
-    }
-    .review-card {
-      background: #fff;
-      padding: 1.8rem 1.5rem;
-      border-radius: 15px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-      font-style: italic;
-      color: #4d3c2e;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 180px;
-      transition: box-shadow 0.3s ease;
-    }
-    .review-card:hover {
-      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-    }
-    .review-text {
-      font-size: 1rem;
-      margin-bottom: 1.2rem;
-      line-height: 1.5;
-    }
-    .review-author {
-      font-weight: 700;
-      font-size: 0.95rem;
-      text-align: right;
-      color: #7a5a29;
-    }
-
-    /* Order Section */
-    #order {
-      background: #ff7b24;
-      padding: 3rem 1rem 4rem;
-      border-radius: 25px;
-      max-width: 480px;
-      margin: 0 auto 4rem;
-      box-shadow: 0 15px 40px rgba(255,123,36,0.3);
-      color: white;
-      text-align: center;
-    }
-    #order h2 {
-      margin-bottom: 1rem;
-      font-size: 2rem;
-      font-weight: 900;
-      text-shadow: 0 1px 3px rgba(0,0,0,0.2);
-    }
-    #order p {
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-bottom: 2rem;
-      text-shadow: 0 1px 3px rgba(0,0,0,0.15);
-    }
-    form#orderForm {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      color: #333;
-      text-align: left;
-    }
-    form#orderForm label {
-      font-weight: 600;
-      margin-bottom: 0.25rem;
-      color: white;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.5);
-    }
-    form#orderForm input[type="text"],
-    form#orderForm input[type="tel"] {
-      padding: 0.8rem 1rem;
-      border-radius: 10px;
-      border: none;
-      font-size: 1rem;
-      box-shadow: 0 0 6px rgba(0,0,0,0.1);
-    }
-    form#orderForm input[type="text"]:focus,
-    form#orderForm input[type="tel"]:focus {
-      outline: none;
-      box-shadow: 0 0 10px #fff3d1;
-    }
-    .checkbox-container {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: white;
-      font-weight: 600;
-      user-select: none;
-    }
-    .checkbox-container input[type="checkbox"] {
-      width: 18px;
-      height: 18px;
+    body { margin: 0; font-family: Arial, sans-serif; color: #333; }
+    .container { width: 90%; max-width: 800px; margin: auto; }
+    header { text-align: center; padding: 20px 0; }
+    header h1 { font-size: 2em; margin-bottom: 10px; }
+    header p { font-size: 1.2em; color: #555; }
+    .cta-btn {
+      background: #e67e22; color: #fff; padding: 15px 30px;
+      font-size: 1.2em; border: none; border-radius: 5px;
       cursor: pointer;
     }
+    .countdown {
+      margin-top: 10px;
+      font-size: 1.2em;
+      color: #e74c3c;
+      font-weight: bold;
+    }
+    section { margin: 40px 0; }
+    .features { display: flex; flex-wrap: wrap; justify-content: space-between; }
+    .feature { flex: 1 1 30%; margin: 10px; text-align: center; }
+    .feature img { width: 60px; }
+    .testimonial {
+      background: #f9f9f9; padding: 20px;
+      margin: 10px 0; border-radius: 5px;
+    }
+    .price { text-align: center; margin: 30px 0; }
+    .price span.old { text-decoration: line-through; color: #999; margin-right: 10px; }
+    .faq dt { font-weight: bold; margin-top: 20px; }
+    img.full { width: 100%; border-radius: 10px; margin: 20px 0; }
+    @media(max-width: 600px) {
+      .features { flex-direction: column; }
+      .feature { margin: 10px 0; }
+      .cta-btn { width: 100%; }
+    }
+
+    /* Modal styles */
+    .modal {
+      display: none; position: fixed; z-index: 1000;
+      left: 0; top: 0; width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.6);
+    }
+    .modal-content {
+      background: #fff; padding: 20px; margin: 10% auto;
+      width: 90%; max-width: 500px; border-radius: 8px;
+      position: relative;
+    }
+    .modal-content h2 { margin-top: 0; }
+    .modal-content input {
+      width: 100%; padding: 10px; margin: 8px 0;
+      border: 1px solid #ccc; border-radius: 4px;
+    }
+    .close {
+      position: absolute; right: 15px; top: 10px;
+      font-size: 24px; cursor: pointer; color: #aaa;
+    }
+    .close:hover { color: #000; }
     .submit-btn {
-      margin-top: 1rem;
-      background-color: #fff;
-      color: #ff7b24;
-      border: none;
-      border-radius: 50px;
-      padding: 1rem 0;
-      font-weight: 900;
-      font-size: 1.25rem;
-      transition: background-color 0.3s ease;
-      box-shadow: 0 8px 15px rgba(255,123,36,0.4);
-    }
-    .submit-btn:hover,
-    .submit-btn:focus {
-      background-color: #ffe4c6;
-      outline: none;
-      box-shadow: 0 10px 20px rgba(255,123,36,0.6);
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.9rem;
-      color: #7a6653;
-      border-top: 1px solid #f0e9e0;
-      margin-top: 4rem;
-    }
-
-    /* Responsive */
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2.2rem;
-      }
-      header p {
-        font-size: 1rem;
-      }
-      #order {
-        max-width: 100%;
-        border-radius: 0;
-      }
-      .benefits-grid, .reviews-grid {
-        grid-template-columns: 1fr !important;
-      }
+      background: #27ae60; color: #fff; border: none;
+      padding: 12px 20px; font-size: 1em;
+      border-radius: 5px; cursor: pointer; width: 100%;
     }
   </style>
 </head>
 <body>
+<div class="container">
   <header>
-    <div class="container">
-      <h1>Keto Coffee</h1>
-      <p>Brûlez les graisses naturellement tout en savourant votre café quotidien.</p>
-      <button id="orderBtn" class="btn-primary" aria-label="Commander Keto Coffee">Profitez de l'offre à 39€ au lieu de 78€</button>
-      <img class="hero-img" src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80" alt="Tasse de Keto Coffee" loading="lazy" />
-    </div>
+    <h1>Transform Your Mornings with Keto Coffee</h1>
+    <img src="/mnt/data/banners/39dad275f3eb77ff2d7314674cb15891.jpg" class="full" alt="Keto Coffee Banner">
+    <p>Boost energy, curb cravings & power your weight-loss journey — just <strong>€39</strong> <del>€79</del></p>
+    <button class="cta-btn" onclick="openForm()">Start Your Transformation</button>
+    <div class="countdown">Offer ends in: <span id="countdown"></span></div>
   </header>
 
-  <main class="container">
-    <section aria-labelledby="benefitsTitle" tabindex="0">
-      <h2 id="benefitsTitle" class="section-title">Pourquoi choisir Keto Coffee ?</h2>
-      <p class="section-subtitle">Découvrez comment Keto Coffee transforme votre routine matinale en un allié minceur naturel et efficace.</p>
-      <div class="benefits-grid">
-        <article class="benefit-card" role="region" aria-label="Accélère le métabolisme">
-          <div class="benefit-icon" aria-hidden="true">🔥</div>
-          <h3 class="benefit-title">Accélère le métabolisme</h3>
-          <p class="benefit-desc">Grâce aux MCT et ingrédients naturels, votre corps brûle plus de calories chaque jour.</p>
-        </article>
-        <article class="benefit-card" role="region" aria-label="Coupe-faim naturel">
-          <div class="benefit-icon" aria-hidden="true">🚫🍔</div>
-          <h3 class="benefit-title">Coupe-faim naturel</h3>
-          <p class="benefit-desc">Évitez les grignotages, restez rassasié plus longtemps sans frustration.</p>
-        </article>
-        <article class="benefit-card" role="region" aria-label="Améliore la concentration">
-          <div class="benefit-icon" aria-hidden="true">🧠</div>
-          <h3 class="benefit-title">Améliore la concentration</h3>
-          <p class="benefit-desc">Une dose d'énergie saine, sans le crash du sucre.</p>
-        </article>
-        <article class="benefit-card" role="region" aria-label="Soutient la cétose">
-          <div class="benefit-icon" aria-hidden="true">🥑</div>
-          <h3 class="benefit-title">Soutient la cétose</h3>
-          <p class="benefit-desc">Optimisé pour le régime keto, favorise la combustion rapide des graisses.</p>
-        </article>
-      </div>
-    </section>
+  <section class="features">
+    <div class="feature">
+      <img src="/mnt/data/banners/1e45842f10248ac210490dc1280bbf4c.jpg" alt="Fat Burn">
+      <h3>Supports Ketosis</h3>
+      <p>Stay in fat-burning mode</p>
+    </div>
+    <div class="feature">
+      <img src="/mnt/data/banners/a0817ee297873a0db87bfcc49f023959.jpg" alt="Energy">
+      <h3>Long-lasting Energy</h3>
+      <p>Focus all day long</p>
+    </div>
+    <div class="feature">
+      <img src="/mnt/data/banners/7dea9dc96d534842a8606fc06615af58.jpg" alt="Cravings">
+      <h3>Appetite Control</h3>
+      <p>No mid-morning cravings</p>
+    </div>
+  </section>
 
-    <section aria-labelledby="reviewsTitle" tabindex="0">
-      <h2 id="reviewsTitle" class="section-title">Ils ont adopté Keto Coffee</h2>
-      <div class="reviews-grid">
-        <blockquote class="review-card" role="region" aria-label="Avis client Sophie">
-          <p class="review-text">“J’ai perdu 5 kg en un mois grâce à Keto Coffee, sans changer mon alimentation !”</p>
-          <footer class="review-author">— Sophie M.</footer>
-        </blockquote>
-        <blockquote class="review-card" role="region" aria-label="Avis client Julien">
-          <p class="review-text">“Enfin un café minceur qui fonctionne vraiment. Mon énergie est au top toute la journée.”</p>
-          <footer class="review-author">— Julien D.</footer>
-        </blockquote>
-        <blockquote class="review-card" role="region" aria-label="Avis client Claire">
-          <p class="review-text">“Le goût est délicieux, et je ne ressens plus ces petites fringales incessantes.”</p>
-          <footer class="review-author">— Claire B.</footer>
-        </blockquote>
-        <blockquote class="review-card" role="region" aria-label="Avis client Marc">
-          <p class="review-text">“Je recommande Keto Coffee à tous ceux qui veulent perdre du poids naturellement.”</p>
-          <footer class="review-author">— Marc L.</footer>
-        </blockquote>
-      </div>
-    </section>
+  <section>
+    <h2>How to Use</h2>
+    <p>Blend one scoop into hot coffee or water. Shake or stir until smooth and frothy.</p>
+    <img src="/mnt/data/banners/b608e713f4cea8a3b22521fd63e61d69.jpg" class="full" alt="How to use Keto Coffee">
+  </section>
 
-    <section id="order" aria-labelledby="orderTitle" tabindex="0">
-      <h2 id="orderTitle">Commandez Keto Coffee dès aujourd'hui</h2>
-      <p>Livraison rapide et paiement 100% sécurisé. Offre exceptionnelle à 39€ au lieu de 78€.</p>
-      <form id="orderForm" novalidate>
-        <label for="nom">Nom *</label>
-        <input type="text" id="nom" name="nom" placeholder="Votre nom" required autocomplete="name" />
+  <section>
+    <h2>Real Results</h2>
+    <div class="testimonial">“Since I started Keto Coffee, I skip lunch and still feel energized—I've lost 8 kg in 6 weeks!” – Julia, 48</div>
+    <div class="testimonial">“My cravings disappeared and my focus at work is amazing. I feel like a new woman.” – Sarah, 57</div>
+  </section>
 
-        <label for="prenom">Prénom *</label>
-        <input type="text" id="prenom" name="prenom" placeholder="Votre
+  <section class="price">
+    <p><span class="old">€79</span> <span class="cta-btn" onclick="openForm()">€39 only</span></p>
+    <p>Free shipping. Limited-time offer!</p>
+  </section>
+
+  <section>
+    <h2>FAQ</h2>
+    <dl class="faq">
+      <dt>Is it safe?</dt>
+      <dd>Yes, made with grass-fed butter, MCT oil and premium coffee. Approved by nutrition experts.</dd>
+      <dt>Any side effects?</dt>
+      <dd>Generally well tolerated—some may feel mild caffeine energy boost.</dd>
+    </dl>
+  </section>
+</div>
+
+<!-- Modal Form -->
+<div id="popupForm" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeForm()">&times;</span>
+    <h2>Order Now</h2>
+    <form>
+      <input type="text" placeholder="First Name" required />
+      <input type="text" placeholder="Last Name" required />
+      <input type="tel" placeholder="Phone Number" required />
+      <input type="text" placeholder="City" required />
+      <input type="text" placeholder="Postal Code" required />
+      <button type="submit" class="submit-btn">Submit Order</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  function openForm() {
+    document.getElementById("popupForm").style.display = "block";
+  }
+  function closeForm() {
+    document.getElementById("popupForm").style.display = "none";
+  }
+  window.onclick = function(event) {
+    const modal = document.getElementById("popupForm");
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  }
+
+  // Countdown timer
+  function startCountdown(duration, display) {
+    let timer = duration, minutes, seconds;
+    setInterval(function () {
+      minutes = parseInt(timer / 60, 10);
+      seconds = parseInt(timer % 60, 10);
+      minutes = minutes < 10 ? "0" + minutes : minutes;
+      seconds = seconds < 10 ? "0" + seconds : seconds;
+      display.textContent = "00:" + minutes + ":" + seconds;
+      if (--timer < 0) timer = 3600; // Reset every hour
+    }, 1000);
+  }
+  window.onload = function () {
+    const countdown = document.getElementById("countdown");
+    startCountdown(3600, countdown); // 1 hour countdown
+  };
+</script>
+</body>
+</html>
+
